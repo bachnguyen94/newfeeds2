@@ -1,5 +1,6 @@
 <?php use Cake\Core\Configure; ?>
 <?php $this->Html->addCrumb(__('System'));?>
+<?= $this->Html->script('Slides/slide_ajax') ?>
 <div class="row">
     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
         <h1 class="page-title txt-color-blueDark">
@@ -62,7 +63,47 @@
                                     'placeholder' => __('Avatar'), 'class'=>'form-control']); ?>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><?=__('Order slide')?><span class="textred">(*)</span></label>
+                            <div class="row col-md-6 form-inline">
+                                <div class="inline-group col-md-4">
+                                    <input type="hidden" value="" name="set_number_people">
+                                    <label class="radio-inline" for="set_number_people-0">
+                                        <?= $this->Form->radio('set_number_people',
+                                            [
+                                                ['value' => '0', 'text' => 'No Slide'],
+                                            ],
+                                            [
+                                                'label' => ['class' => 'set_number_people-0'],
+                                                'id' => 'set_number_people-0',
+                                                'checked' => 'checked',
+                                            ])
+                                        ?>
+                                    </label>
+                                    <label class="radio-inline" for="set_number_people-1">
+                                        <?= $this->Form->radio('set_number_people',
+                                            [
+                                                ['value' => '1', 'text' => 'Yes'],
+                                            ],
+                                            [
+                                                'label' => ['class' => 'set_number_people-1'],
+                                                'id' => 'set_number_people-1',
+                                                'checked' => 'checked',
+                                            ])
+                                        ?>
+                                </div>
+                                <div class="col-md-6">
+                                    <?= $this->Form->input('Slides.display_order', [
+                                        'type' => 'select',
+                                        'label' => 'false',
+                                        'options' => $slides,
+                                        'default' => 0,
+                                        'empty' => 'No',
+                                        'class' => 'form-control',
+                                    ])?>
+                                </div>
+                            </div>
+                        </div>
 
                     </fieldset>
 

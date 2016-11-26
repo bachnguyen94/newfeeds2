@@ -35,7 +35,7 @@ class GamesTable extends Table
         $this->table('games');
         $this->displayField('title');
         $this->primaryKey('id');
-
+        $this->addBehavior('HasOneCommon');
         $this->addBehavior('Timestamp');
         $this->hasOne('Slides', [
             'className' => 'Slides',

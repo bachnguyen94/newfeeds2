@@ -41,9 +41,8 @@ class SlidesTable extends Table
         $this->table('slides');
         $this->displayField('title');
         $this->primaryKey('id');
-
+        $this->addBehavior('HasOneCommon');
         $this->addBehavior('Timestamp');
-
         $this->belongsTo('Businesses', [
             'className' => 'Businesses',
             'foreignKey' => 'recordId',

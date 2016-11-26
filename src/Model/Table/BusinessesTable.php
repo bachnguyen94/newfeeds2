@@ -34,7 +34,7 @@ class BusinessesTable extends Table
         $this->table('businesses');
         $this->displayField('title');
         $this->primaryKey('id');
-
+        $this->addBehavior('HasOneCommon');
         $this->addBehavior('Timestamp');
         $this->hasOne('Slides', [
             'className' => 'Slides',
